@@ -1,0 +1,19 @@
+- hosts: localhost
+  tasks:
+  - name: Install essential packages
+    apt: name={{ item }} state=installed
+    with_items:
+      - git-core
+      - zsh
+      - openssh-server
+      - gnome-terminal
+      - emacs
+      - emacs-goodies-el
+      - openjdk-7-jdk
+      - maven
+      - texlive-extra-utils
+  - user:
+      name: ddang
+      shell: /bin/zsh
+      groups: root,sudo,vagrant
+      append: yes

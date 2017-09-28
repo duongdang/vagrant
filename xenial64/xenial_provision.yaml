@@ -1,0 +1,24 @@
+- hosts: localhost
+  tasks:
+  - name: Install essential packages
+    apt: name={{ item }} state=installed
+    with_items:
+      - git-core
+      - zsh
+      - openssh-server
+      - gnome-terminal
+      - emacs
+      - emacs-goodies-el
+      - openjdk-8-jdk
+      - maven
+      - python-pip
+      - python-pandas
+      - python-sklearn
+      - ipython
+      - ubuntu-desktop
+  - user:
+      name: ddang
+      shell: /bin/zsh
+      groups: root,sudo,vagrant
+      append: yes
+
